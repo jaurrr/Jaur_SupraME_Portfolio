@@ -1,0 +1,81 @@
+<section id="experience" class="panel" appPanel>
+  <div class="wipe" aria-hidden="true"></div>
+
+  <div class="section-head" appReveal>
+    <span class="section-num">03</span>
+    <h2>Experience</h2>
+    <span class="label">Where I work</span>
+  </div>
+
+  <article class="timeline-item" appReveal>
+    <div class="tl-period">{{ exp.period }}</div>
+    <div class="tl-body">
+      <h3>{{ exp.role }}</h3>
+      <p class="tl-org">
+        <a [href]="exp.liveUrl" target="_blank" rel="noopener">{{ exp.company }}</a>
+      </p>
+      <p class="tl-summary">{{ exp.summary }}</p>
+      <ul class="tl-points">
+        @for (p of exp.points; track p) {
+          <li>{{ p }}</li>
+        }
+      </ul>
+    </div>
+  </article>
+
+  <div class="two-col">
+    <div>
+      <h3 class="col-heading" appReveal>Certifications</h3>
+      <div class="cert-grid">
+        @for (c of certs; track c.title; let i = $index) {
+          <button type="button" class="cert-card" appReveal [appReveal]="i * 80" (click)="openCert(c)" [attr.aria-label]="'Open certificate: ' + c.title">
+            <span class="cert-thumb imgwipe">
+              <img [src]="c.thumb" [alt]="c.title + ' — certificate preview'" loading="lazy" />
+            </span>
+            <span class="cert-info">
+              <span class="cert-title">{{ c.title }}</span>
+              <span class="cert-org">{{ c.org }}</span>
+            </span>
+          </button>
+        }
+      </div>
+    </div>
+    <div>
+      <h3 class="col-heading" appReveal>Education</h3>
+      <ul class="plain-list">
+        @for (e of education; track e.title; let i = $index) {
+          <li appReveal [appReveal]="i * 80">
+            <span class="plain-title">{{ e.title }}</span>
+            <span class="plain-sub">
+              @if (e.url) {
+                <a [href]="e.url" target="_blank" rel="noopener">{{ e.org }}</a>
+              } @else {
+                {{ e.org }}
+              }
+            </span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  @if (selectedCert(); as cert) {
+    <div class="lightbox open cert-lightbox" (click)="closeCert()" role="dialog" aria-modal="true" [attr.aria-label]="'Certificate viewer: ' + cert.title">
+      <div class="cert-modal" (click)="$event.stopPropagation()">
+        <div class="cert-modal-head">
+          <div>
+            <h3>{{ cert.title }}</h3>
+            <p>{{ cert.org }}</p>
+          </div>
+          <div class="cert-modal-actions">
+            <a class="btn btn-ghost" [href]="cert.pdf" target="_blank" rel="noopener">Open full PDF</a>
+            <button type="button" class="lb-close" (click)="closeCert()" aria-label="Close certificate viewer">×</button>
+          </div>
+        </div>
+        @if (certUrl()) {
+          <iframe [src]="certUrl()" [title]="cert.title + ' — full certificate'" loading="lazy"></iframe>
+        }
+      </div>
+    </div>
+  }
+</section>

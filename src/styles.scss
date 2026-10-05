@@ -1,0 +1,349 @@
+/* ==========================================================================
+   mix-ma-wipe — "The Editorial Motion System"
+   ma's warm-paper minimalism + wipe's clip-path motion system.
+   Light-first, with a tasteful warm-charcoal dark variant.
+   ========================================================================== */
+
+:root,
+[data-theme='light'] {
+  --paper: #f7f3ec;
+  --paper-deep: #ece5d5;
+  --plate-bg: #fbf9f4;
+  --ink: #1a1815;
+  --ink-soft: #4a453e;
+  --ink-faint: #8a8378;
+  --accent: #c8451f;
+  --hairline: rgba(26, 24, 21, 0.16);
+  --wipe-veil: #e9e1d0;
+  --nav-bg: rgba(247, 243, 236, 0.92);
+  --shadow: 0 18px 50px rgba(30, 24, 15, 0.12);
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", -apple-system, "Helvetica Neue", sans-serif;
+  --ease: cubic-bezier(0.77, 0, 0.18, 1);
+  --column: 1120px;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --paper: #171410;
+  --paper-deep: #1f1a14;
+  --plate-bg: #1d1913;
+  --ink: #f2ede1;
+  --ink-soft: #c9c1b2;
+  --ink-faint: #8d8676;
+  --accent: #d45a2b;
+  --hairline: rgba(242, 237, 225, 0.16);
+  --wipe-veil: #241e15;
+  --nav-bg: rgba(23, 20, 16, 0.92);
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+::selection { background: var(--accent); color: var(--paper); }
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+main { max-width: var(--column); margin: 0 auto; padding: 0 2.5rem; display: block; }
+
+/* ---------- Labels & hairline rules ---------- */
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--ink-faint);
+}
+
+hr.rule {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  margin: 0 auto;
+  max-width: var(--column);
+}
+
+/* ---------- Section panels: the clip-path wipe system ---------- */
+
+.panel { position: relative; overflow: hidden; padding: 7rem 0; }
+.panel[id] { scroll-margin-top: 84px; }
+
+.wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: var(--wipe-veil);
+  clip-path: inset(0 0 0 0);
+}
+html.armed .wipe { clip-path: inset(0 0 0 0); }
+.panel.inview .wipe { animation: wipeOff 1.05s var(--ease) forwards; }
+@keyframes wipeOff { to { clip-path: inset(0 0 0 100%); } }
+
+/* ---------- Whisper-wipe reveal utility (driven by .inview) ---------- */
+
+.rv {
+  transition:
+    opacity 0.9s ease var(--d, 0ms),
+    transform 0.9s var(--ease) var(--d, 0ms),
+    clip-path 0.9s var(--ease) var(--d, 0ms);
+}
+html.armed .rv {
+  opacity: 0;
+  transform: translateY(30px);
+  clip-path: inset(0 0 100% 0);
+}
+/* The `html.armed` qualifier (0,3,1) guarantees the revealed state beats the
+   `html.armed .rv` hiding rule (0,2,1) — same specificity family as the
+   imgwipe swept fix below. */
+html.armed .rv.inview,
+html.armed .inview .rv {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---------- Masked line reveals (hero, gated on body.loaded) ---------- */
+
+.mask { display: block; overflow: hidden; }
+.mask > span { display: block; transform: translateY(0); }
+html.armed .mask > span { transform: translateY(112%); }
+body.loaded .mask > span { animation: riseUp 0.95s var(--ease) forwards; }
+@keyframes riseUp { to { transform: translateY(0); } }
+
+/* ---------- Image block-wipe reveals ----------
+   BUG FIX (from wipe static): `html.armed .imgwipe img` (0,2,2) used to beat
+   `.imgwipe.swept img` (0,2,1), so the hero photo never appeared.
+   The `html.armed .imgwipe.swept img` rule below (0,3,2 + !important)
+   guarantees the swept state always wins. */
+
+.imgwipe { position: relative; overflow: hidden; background: var(--paper-deep); }
+.imgwipe img { width: 100%; height: 100%; object-fit: cover; }
+.imgwipe::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+html.armed .imgwipe img { opacity: 0; }
+.imgwipe.swept img { opacity: 1; transition: opacity 0.01s 0.55s; }
+html.armed .imgwipe.swept img { opacity: 1 !important; }
+.imgwipe.swept::after { animation: blockWipe 1.1s var(--ease) forwards; }
+@keyframes blockWipe {
+  0% { transform: scaleX(0); transform-origin: left; }
+  45%, 55% { transform: scaleX(1); transform-origin: left; }
+  55.01% { transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+
+/* ---------- Numbered section heads ---------- */
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.section-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--accent);
+}
+.section-head h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: 0.01em;
+}
+.section-head .label { margin-left: auto; }
+
+/* ---------- Catalogue photo plates ---------- */
+
+.plate { cursor: default; }
+.plate-frame {
+  border: 1px solid var(--hairline);
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  background: var(--plate-bg);
+  transition: background 0.4s ease;
+}
+.plate-frame img { width: 100%; }
+.plate figcaption {
+  margin-top: 0.8rem;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  font-style: italic;
+  font-family: var(--serif);
+}
+.cap-num {
+  font-style: normal;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-right: 0.6rem;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  text-align: center;
+}
+.btn:hover { background: transparent; color: var(--ink); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* ---------- Vertical side text ---------- */
+
+.side-text {
+  position: fixed;
+  right: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  writing-mode: vertical-rl;
+  font-size: 10px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ---------- Lightbox (gallery + certificates) ---------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: var(--paper);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox figure { max-width: min(860px, 88vw); text-align: center; }
+.lightbox img {
+  max-height: 76vh;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid var(--hairline);
+  padding: 1rem;
+  background: var(--plate-bg);
+}
+.lightbox figcaption {
+  margin-top: 1rem;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.lb-count { font-style: normal; font-family: var(--sans); font-size: 12px; letter-spacing: 0.2em; color: var(--ink-faint); }
+.lb-close, .lb-prev, .lb-next {
+  position: absolute;
+  background: none;
+  border: none;
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.5rem 1rem;
+  transition: color 0.25s;
+}
+.lb-close:hover, .lb-prev:hover, .lb-next:hover { color: var(--accent); }
+.lb-close { top: 1rem; right: 1.5rem; }
+.lb-prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 1rem; top: 50%; transform: translateY(-50%); }
+
+/* ---------- Footer ---------- */
+
+.footer {
+  max-width: var(--column);
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+.to-top {
+  margin-top: 1rem;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--hairline);
+  cursor: pointer;
+}
+.to-top:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .side-text { display: none; }
+  main { padding: 0 1.25rem; }
+  .panel { padding: 4.5rem 0; }
+  .lb-prev { left: 0.25rem; }
+  .lb-next { right: 0.25rem; }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+  html.armed .rv, html.armed .mask > span, html.armed .imgwipe img { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .wipe, .imgwipe::after { display: none !important; }
+}

@@ -1,0 +1,121 @@
+.timeline-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+}
+.tl-period {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--accent);
+}
+.tl-body h3 { font-family: var(--serif); font-weight: 500; font-size: 1.8rem; }
+.tl-org { margin: 0.35rem 0 1.25rem; }
+.tl-org a {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+.tl-summary { color: var(--ink-soft); font-weight: 300; margin-bottom: 1.5rem; max-width: 38rem; }
+.tl-points { list-style: none; max-width: 40rem; }
+.tl-points li {
+  position: relative;
+  padding: 0.55rem 0 0.55rem 1.75rem;
+  font-weight: 300;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--hairline);
+  font-size: 0.95rem;
+}
+.tl-points li::before {
+  content: "·";
+  position: absolute;
+  left: 0.4rem;
+  color: var(--accent);
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--hairline);
+}
+.col-heading {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Certifications: small thumbnail cards → PDF lightbox. */
+.cert-grid { display: grid; gap: 1.25rem; }
+.cert-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  text-align: left;
+  border: 1px solid var(--hairline);
+  background: var(--plate-bg);
+  padding: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.25s;
+  width: 100%;
+}
+.cert-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.cert-thumb { display: block; }
+.cert-thumb img { aspect-ratio: 4 / 2.8; }
+.cert-info { display: flex; flex-direction: column; gap: 0.35rem; }
+.cert-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; }
+.cert-org { font-size: 0.85rem; color: var(--ink-faint); font-weight: 300; }
+
+.plain-list { list-style: none; }
+.plain-list li { padding: 1.1rem 0; border-top: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 0.25rem; }
+.plain-list li:last-child { border-bottom: 1px solid var(--hairline); }
+.plain-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; }
+.plain-sub { font-size: 0.9rem; color: var(--ink-faint); font-weight: 300; }
+.plain-sub a { border-bottom: 1px solid var(--hairline); transition: color 0.25s, border-color 0.25s; }
+.plain-sub a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Certificate PDF modal. */
+.cert-lightbox { align-items: center; }
+.cert-modal {
+  width: min(960px, 92vw);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--plate-bg);
+  border: 1px solid var(--hairline);
+  padding: 1.5rem;
+}
+.cert-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.cert-modal-head h3 { font-family: var(--serif); font-weight: 500; font-size: 1.4rem; }
+.cert-modal-head p { color: var(--ink-faint); font-size: 0.9rem; }
+.cert-modal-actions { display: flex; align-items: center; gap: 1rem; }
+.cert-modal .lb-close { position: static; padding: 0.25rem 0.75rem; }
+.cert-modal iframe {
+  width: 100%;
+  height: min(64vh, 640px);
+  border: 1px solid var(--hairline);
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .timeline-item { grid-template-columns: 1fr; gap: 1.25rem; }
+  .tl-period { max-width: 240px; }
+  .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+  .cert-modal-head { flex-direction: column; }
+}

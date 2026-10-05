@@ -1,0 +1,47 @@
+<section id="gallery" class="panel" appPanel>
+  <div class="wipe" aria-hidden="true"></div>
+
+  <div class="section-head" appReveal>
+    <span class="section-num">05</span>
+    <h2>Gallery</h2>
+    <span class="label">The catalogue</span>
+  </div>
+
+  <p class="gallery-hint" appReveal>Select a plate to enlarge — {{ images.length }} frames</p>
+
+  <div class="gallery-grid">
+    @for (img of images; track img.src; let i = $index) {
+      <figure
+        class="plate"
+        appReveal
+        [appReveal]="i * 60"
+        (click)="open(i)"
+        (keydown.enter)="open(i)"
+        (keydown.space)="open(i); $event.preventDefault()"
+        tabindex="0"
+        role="button"
+        [attr.aria-label]="'Enlarge image: ' + img.alt"
+      >
+        <div class="plate-frame plate-sm imgwipe">
+          <img [src]="img.src" [alt]="img.alt" loading="lazy" />
+        </div>
+        <figcaption><span class="cap-num">{{ i + 1 }}</span> {{ img.alt }}</figcaption>
+      </figure>
+    }
+  </div>
+</section>
+
+@if (lightbox() !== null) {
+  <div class="lightbox open" (click)="close()" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+    <button type="button" class="lb-close" (click)="close()" aria-label="Close viewer">×</button>
+    <button type="button" class="lb-prev" (click)="step(-1); $event.stopPropagation()" aria-label="Previous image">‹</button>
+    <figure (click)="$event.stopPropagation()">
+      <img [src]="images[lightbox()!].src" [alt]="images[lightbox()!].alt" />
+      <figcaption>
+        <span>{{ images[lightbox()!].alt }}</span>
+        <span class="lb-count">{{ lightbox()! + 1 }} / {{ images.length }}</span>
+      </figcaption>
+    </figure>
+    <button type="button" class="lb-next" (click)="step(1); $event.stopPropagation()" aria-label="Next image">›</button>
+  </div>
+}

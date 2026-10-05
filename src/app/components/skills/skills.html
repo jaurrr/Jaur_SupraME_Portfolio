@@ -1,0 +1,39 @@
+<section id="skills" class="panel" appPanel>
+  <div class="wipe" aria-hidden="true"></div>
+
+  <div class="section-head" appReveal>
+    <span class="section-num">02</span>
+    <h2>Skills &amp; Services</h2>
+    <span class="label">The toolkit</span>
+  </div>
+
+  <div class="skill-cats">
+    @for (cat of categories; track cat.title; let i = $index) {
+      <article class="skill-cat" appReveal [appReveal]="i * 80">
+        <h3>{{ cat.title }}</h3>
+        <p class="skill-sub">{{ cat.subtitle }}</p>
+        <p class="skill-list">{{ cat.skills.join(' · ') }}</p>
+      </article>
+    }
+  </div>
+
+  <div class="services">
+    <figure class="plate" appReveal>
+      <div class="plate-frame imgwipe">
+        <img [src]="servicesImage" alt="Developer workspace with laptop and notebook — services I offer" loading="lazy" />
+      </div>
+      <figcaption><span class="cap-num">Pl. III</span> What I offer.</figcaption>
+    </figure>
+    <div class="services-list">
+      <h3 appReveal>Services I offer</h3>
+      <ul>
+        @for (svc of services; track svc.title; let i = $index) {
+          <li appReveal [appReveal]="i * 60">
+            <span class="svc-title">{{ svc.title }}</span>
+            <span class="svc-desc">{{ svc.desc }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+<header class="topnav">
+  <a class="brand" (click)="go('home')" href="#home" [attr.aria-label]="profile.brand + ' — home'">
+    jauhar<span class="accent">.</span>dev
+  </a>
+
+  <nav class="links" aria-label="Sections">
+    @for (l of links; track l.id) {
+      <a
+        href="#{{ l.id }}"
+        (click)="go(l.id); $event.preventDefault()"
+        [class.active]="active() === l.id"
+        [attr.aria-current]="active() === l.id ? 'true' : null"
+      >{{ l.label }}</a>
+    }
+  </nav>
+
+  <div class="tools">
+    <button
+      type="button"
+      class="theme-toggle"
+      (click)="theme.toggle()"
+      [attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+      [attr.title]="theme.theme() === 'dark' ? 'Light mode' : 'Dark mode'"
+    >
+      @if (theme.theme() === 'dark') {
+        <span aria-hidden="true">☀</span>
+      } @else {
+        <span aria-hidden="true">☾</span>
+      }
+    </button>
+    <button
+      type="button"
+      class="burger"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+@if (menuOpen()) {
+  <nav class="menu" [attr.aria-hidden]="!menuOpen()" aria-label="Menu">
+    <div class="menu-wipe" aria-hidden="true"></div>
+    <div class="menu-inner">
+      <ul class="menu-list">
+        @for (l of links; track l.id; let i = $index) {
+          <li [style.--d]="(i * 60) + 'ms'">
+            <a
+              class="m-link"
+              href="#{{ l.id }}"
+              (click)="go(l.id); $event.preventDefault()"
+              [class.active]="active() === l.id"
+            >
+              <span class="m-num">{{ ($index + 1).toString().padStart(2, '0') }}</span>
+              <span class="m-text">{{ l.label }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+      <div class="menu-foot">
+        <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+        <div class="menu-socials">
+          <a [href]="profile.github" target="_blank" rel="noopener">GitHub</a>
+          <a [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+          <a [href]="profile.instagram" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+}

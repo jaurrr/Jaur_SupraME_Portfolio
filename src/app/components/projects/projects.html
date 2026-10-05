@@ -1,0 +1,45 @@
+<section id="projects" class="panel" appPanel>
+  <div class="wipe" aria-hidden="true"></div>
+
+  <div class="section-head" appReveal>
+    <span class="section-num">04</span>
+    <h2>Projects</h2>
+    <span class="label">Selected work</span>
+  </div>
+
+  <figure class="plate plate-wide" appReveal>
+    <div class="plate-frame imgwipe imgwipe-wide">
+      <img [src]="projectsImage" alt="Desk setup with laptop and notes — featured projects" loading="lazy" />
+    </div>
+    <figcaption><span class="cap-num">Pl. IV</span> Things I have built.</figcaption>
+  </figure>
+
+  <div class="projects">
+    @for (p of projects; track p.title; let i = $index) {
+      <article class="project" appReveal [appReveal]="i * 60">
+        <div class="proj-meta">
+          <span class="proj-tag">{{ p.tag }}</span>
+          <span class="proj-year">{{ p.year }}</span>
+        </div>
+        <div class="proj-body">
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.desc }}</p>
+          <p class="proj-tech">{{ p.tech.join(' · ') }}</p>
+          @if (p.liveUrl || p.extraLinks?.length) {
+            <p class="proj-links">
+              @if (p.liveUrl) {
+                <a [href]="p.liveUrl" target="_blank" rel="noopener">{{ p.liveLabel || 'Live Demo' }}</a>
+              }
+              @for (l of p.extraLinks; track l.url) {
+                <span class="link-sep" aria-hidden="true">/</span>
+                <a [href]="l.url" target="_blank" rel="noopener">{{ l.label }}</a>
+              }
+            </p>
+          }
+        </div>
+      </article>
+    }
+  </div>
+
+  <p class="projects-soon" appReveal>More projects coming soon — I keep building. <em>Hold My Coffee, Wait And Watch</em></p>
+</section>

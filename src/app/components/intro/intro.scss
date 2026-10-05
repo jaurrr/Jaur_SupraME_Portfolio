@@ -1,0 +1,62 @@
+/* 0–100 counter preloader with clip-wipe exit — ma restraint, wipe motion. */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--paper);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pre-center { text-align: center; width: min(560px, 86vw); }
+
+.pre-label {
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.pre-count {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(4.5rem, 16vw, 9rem);
+  line-height: 1;
+  margin: 0.5rem 0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.pre-bar {
+  height: 2px;
+  background: var(--hairline);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+.pre-bar span { display: block; height: 100%; background: var(--accent); }
+
+.pre-status {
+  margin-top: 1.25rem;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* Wipe exit: ink block sweeps across, then the whole panel wipes upward. */
+.pre-wipe {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: translateX(-101%);
+  pointer-events: none;
+}
+.preloader.exit .pre-wipe { transform: translateX(0); transition: transform 0.55s var(--ease); }
+.preloader.gone .pre-wipe { transform: translateX(101%); transition: transform 0.7s var(--ease) 0.05s; }
+.preloader.gone {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.7s var(--ease) 0.55s;
+  pointer-events: none;
+}

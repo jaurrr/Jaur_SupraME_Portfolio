@@ -1,0 +1,27 @@
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="label mask"><span>The Editorial · Issue 01</span></p>
+      <h1 class="hero-name mask">
+        <span>{{ profile.firstName }}<br /><em>{{ profile.lastName }}</em></span>
+      </h1>
+      <p class="hero-roles mask">
+        <span>—&nbsp;<app-typing [words]="profile.roles" /></span>
+      </p>
+      <p class="hero-tagline mask"><span>{{ profile.tagline }}</span></p>
+      <div class="hero-actions">
+        <a class="btn" href="#projects" (click)="go('projects'); $event.preventDefault()">View Work</a>
+        <a class="btn btn-ghost" [href]="profile.cvPath" download>Download CV</a>
+      </div>
+    </div>
+    <figure class="plate hero-plate">
+      <div class="imgwipe imgwipe--hero" [class.swept]="swept()">
+        <div class="flip" [class.flipped]="flipped()" (click)="toggleFlip()" (keydown.enter)="toggleFlip()" (keydown.space)="toggleFlip(); $event.preventDefault()" tabindex="0" role="button" aria-label="Flip portrait card">
+          <img class="flip-face flip-front" [src]="profile.heroImage" alt="Portrait of {{ profile.firstName }} {{ profile.lastName }}" fetchpriority="high" />
+          <img class="flip-face flip-back" [src]="profile.heroBackImage" alt="{{ profile.firstName }} {{ profile.lastName }} — alternate portrait" loading="lazy" />
+        </div>
+      </div>
+      <figcaption appReveal><span class="cap-num">Pl. I</span> The engineer, at rest.</figcaption>
+    </figure>
+  </div>
+</section>

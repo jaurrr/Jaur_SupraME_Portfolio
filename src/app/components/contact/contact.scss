@@ -1,0 +1,79 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.plate-frame.imgwipe img { aspect-ratio: 4 / 5; object-position: center 20%; }
+
+.contact-copy > p {
+  color: var(--ink-soft);
+  font-weight: 300;
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-copy form { margin-bottom: 2.5rem; }
+.contact-copy label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink-faint);
+  margin-bottom: 1.5rem;
+}
+.contact-copy input,
+.contact-copy textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.6rem;
+  padding: 0.85rem 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--ink);
+  border-radius: 0;
+  transition: border-color 0.25s;
+}
+.contact-copy input:focus,
+.contact-copy textarea:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+.contact-copy textarea { resize: vertical; }
+.contact-copy .btn { margin-top: 0.5rem; }
+.form-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  min-height: 1.4em;
+}
+
+.contact-links { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+.contact-line {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  width: fit-content;
+  border-bottom: 1px solid var(--hairline);
+  transition: color 0.25s, border-color 0.25s;
+}
+.contact-line:hover { color: var(--accent); border-color: var(--accent); }
+
+.social { display: flex; gap: 1.75rem; margin-bottom: 2.5rem; align-items: center; }
+.social a {
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.social a:hover { color: var(--accent); transform: translateY(-2px); }
+.social a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+.social svg { display: block; }
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
