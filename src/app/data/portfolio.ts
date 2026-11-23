@@ -47,9 +47,9 @@ export const PROFILE = {
   firstName: 'Jauhar',
   lastName: 'Ayyub',
   brand: 'jauhar.dev',
-  roles: ['Software Engineer', 'Frontend Developer', 'Angular Specialist', 'AI-Assisted Developer'],
+  roles: ['Software Engineer', 'AI Engineer', 'Frontend Developer', 'Angular Specialist', 'AI-Assisted Developer'],
   tagline:
-    'Software engineer with 3+ years of experience building scalable web applications with Angular and TypeScript. I combine solid engineering fundamentals with modern AI-assisted workflows to deliver quality software, faster.',
+    'Software engineer with 3+ years of experience building scalable web applications with Angular and TypeScript. I combine solid engineering fundamentals with AI-assisted workflows and reverse engineering to deliver quality software, faster.',
   email: 'jaurazmi42@gmail.com',
   phone: '+91 9936786415',
   whatsapp: 'https://wa.me/919936786415',
@@ -61,7 +61,7 @@ export const PROFILE = {
   heroImage: 'assets/flip-front.jpg',
   heroBackImage: 'assets/flip-back.jpg',
   contactLine:
-    "Whether it's a job opportunity, an invite to coffee, or feedback on my portfolio, my inbox is always open.",
+    "Whether it's a job opportunity, an invite to coffee, or feedback on my portfolio, my inbox is always open. Available immediately — open to remote roles worldwide.",
 };
 
 export const ABOUT = {
@@ -69,11 +69,11 @@ export const ABOUT = {
   image: 'assets/about-final.jpg',
   paragraphs: [
     "I'm Jauhar Ayyub, a software engineer from India with over 3 years of experience building web applications. At Digital Transformation Factory, I work on a Manufacturing Execution System (MES) used in real production environments — integrating REST APIs, building reusable Angular components with PrimeNG, and handling complex data workflows with Reactive Forms and RxJS.",
-    'Beyond my day job, I design and ship complete products independently — from idea to deployment. I also work with AI agents and modern AI-assisted development workflows, which help me prototype faster, catch issues earlier, and keep code quality high.',
+    'Beyond my day job, I run Jaurvo — my own web studio with a 15+ member team building websites, brands and designs for clients worldwide. I also design and ship complete products independently, from idea to deployment, and I work with AI agents and reverse-engineering tools to prototype faster, learn how great apps work, and keep code quality high.',
   ],
   stats: [
     { value: '3+', label: 'Years Experience' },
-    { value: '4', label: 'Major Projects' },
+    { value: '5', label: 'Major Projects' },
     { value: '15+', label: 'Technologies' },
   ],
 };
@@ -82,35 +82,51 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     icon: '🖥️',
     title: 'Frontend Development',
-    subtitle: 'The part of the product users see and touch.',
+    subtitle: 'Production Angular apps — from MES dashboards used in real factories to public products.',
     skills: [
-      'HTML5', 'CSS3', 'JavaScript (ES6+)', 'TypeScript', 'Angular', 'React',
-      'SCSS', 'Responsive Design', 'Bootstrap', 'Tailwind CSS', 'PrimeNG',
-      'Angular Material', 'Lucide',
+      'HTML5', 'CSS3', 'SCSS', 'JavaScript (ES6+)', 'TypeScript', 'Angular',
+      'Angular Signals', 'RxJS', 'Reactive Forms', 'State Management',
+      'PrimeNG', 'Angular Material', 'Bootstrap', 'Tailwind CSS', 'Lucide',
+      'React', 'Responsive Design', 'i18n & RTL Layouts', 'SSR / Prerendering', 'PWA', 'Frontend Architecture',
     ],
   },
   {
     icon: '⚙️',
     title: 'Backend & Databases',
-    subtitle: 'Server-side logic and data that power the frontend.',
-    skills: ['Node.js', 'Express.js', 'Python', 'C# (.NET)', 'MySQL', 'PostgreSQL', 'MongoDB', 'SQL'],
+    subtitle: 'APIs, auth and data — Supabase backends in production and REST integrations that hold up under real load.',
+    skills: [
+      'REST APIs', 'Node.js', 'Express.js', 'Supabase', 'PostgreSQL',
+      'Row Level Security', 'Edge Functions', 'Token Auth / JWT', 'Python',
+      'C# (.NET)', 'MySQL', 'MongoDB', 'SQL', 'SQL Optimization',
+    ],
+  },
+  {
+    icon: '🤖',
+    title: 'AI & Reverse Engineering',
+    subtitle: 'Building with AI agents — and taking apps apart to learn exactly how great products work.',
+    skills: [
+      'AI Agents', 'Prompt Engineering', 'AI-assisted Development',
+      'Reverse Engineering', 'REA', 'Ghidra', 'APK Analysis', 'IL2CPP Analysis',
+    ],
   },
   {
     icon: '🛠️',
     title: 'Tools & Workflow',
-    subtitle: 'Daily toolkit for building and debugging.',
+    subtitle: 'The daily setup — version control, debugging, CI/CD and shipping.',
     skills: [
-      'Visual Studio Code', 'Chrome DevTools', 'Postman', 'Git & GitHub',
-      'GitHub Actions', 'Bash', 'PowerShell', 'Linux (Ubuntu)',
+      'Visual Studio Code', 'Git & GitHub', 'GitHub Actions', 'Vercel',
+      'Chrome DevTools', 'Postman', 'Bash', 'PowerShell', 'Linux (Ubuntu)',
+      'Agile / Scrum',
     ],
   },
   {
     icon: '🎨',
     title: 'Design & Practices',
-    subtitle: 'How I keep code clean and interfaces sharp.',
+    subtitle: 'Clean code, sharp interfaces, and the discipline that keeps both.',
     skills: [
-      'Figma', 'Canva', 'AI-assisted Design', 'Documentation',
-      'Code Reviews', 'Clean Code Principles', 'Design Patterns',
+      'Figma', 'Canva', 'UI/UX Implementation', 'AI-assisted Design',
+      'Technical SEO', 'Documentation', 'Code Reviews',
+      'Clean Code Principles', 'Design Patterns', 'OOP', 'Team Leading', 'Client Handling',
     ],
   },
 ];
@@ -134,11 +150,11 @@ export const EXPERIENCE = {
   summary:
     'Manufacturing Execution System (MES) — a web application for managing quality processes in field operations: checklist creation, sample execution, dynamic forms, and reporting.',
   points: [
-    'Integration of REST APIs with token-based authentication for secure data flows.',
-    'Reusable PrimeNG UI components used consistently across the application.',
-    'Reactive Forms and RxJS/Observables for complex, validated data-entry workflows.',
-    'SQL query optimization and production bug fixes in coordination with the backend team.',
-    'Shipping in an Agile process with designers and backend engineers.',
+    'Build and maintain production MES workflows in Angular and TypeScript — checklist creation, sample execution, dynamic forms and reporting — used in real field operations.',
+    'Design complex, validated forms with Reactive Forms and RxJS, turning changing business rules into reusable, maintainable form components.',
+    'Integrate REST APIs with token-based authentication and build data-heavy screens with PrimeNG components.',
+    'Create reusable components so new checklists, forms and reports ship faster without duplicating code.',
+    'Fix production bugs and improve existing screens while the system stays live for its users.',
   ],
 };
 
@@ -165,8 +181,8 @@ export const CERTIFICATIONS: Certificate[] = [
 
 export const EDUCATION: Education[] = [
   { title: 'BCA · 2024', org: 'Veer Bahadur Singh Purvanchal University, Jaunpur', url: 'https://www.vbspu.ac.in' },
-  { title: 'Intermediate · 2019', org: 'Shibli National Inter College, Azamgarh', url: 'https://www.vbspu.ac.in/en/page/photo-gallery-main' },
-  { title: 'High School · 2017', org: 'R.N Public School, Azamgarh', url: 'https://maps.app.goo.gl/n7PtrYVp5RKRoJsD9?g_st=aw' },
+  { title: 'Intermediate · 2019', org: 'Shibli National Inter College, Azamgarh' },
+  { title: 'High School · 2017', org: 'R.N Public School, Azamgarh' },
 ];
 
 export const PROJECTS: Project[] = [
@@ -184,17 +200,21 @@ export const PROJECTS: Project[] = [
     title: 'Hamza Travels',
     year: '2025',
     tag: 'Solo Project',
-    desc: 'Travel documents, ticketing & packages platform — designed and built end to end: frontend architecture, UI/UX, and booking workflows, deployed to production.',
+    desc: 'Travel documents, ticketing & packages platform — designed and built end to end: frontend architecture, UI/UX, and booking workflows. Live production site, solo delivered from idea to deployment.',
     tech: ['Angular', 'TypeScript', 'Lucide'],
     liveUrl: 'https://hamza-travels-ruddy.vercel.app/',
     liveLabel: 'Live Demo',
+    extraLinks: [{ url: 'https://github.com/jaurrr/hamza-travels', label: 'GitHub' }],
   },
   {
-    title: 'Fixdoo',
+    title: 'JaurTools',
     year: '2026',
-    tag: 'Solo Project',
-    desc: 'Local services marketplace — from AC repair to home construction, connecting users with nearby service providers. Built the service discovery and provider-listing flow independently.',
+    tag: 'Team Project',
+    desc: 'Free browser-based tools in English, Hindi and Arabic — 600+ tools that run entirely in the browser: no signup, no server, no data collected. I lead a 4-member team building it.',
     tech: ['Angular', 'TypeScript'],
+    liveUrl: 'https://jaurtools.vercel.app/',
+    liveLabel: 'Live Demo',
+    extraLinks: [{ url: 'https://github.com/jaurrr/Jaurtools', label: 'GitHub' }],
   },
   {
     title: 'SnapLink',
@@ -204,6 +224,16 @@ export const PROJECTS: Project[] = [
     tech: ['Angular'],
     liveUrl: 'https://play.google.com/store/apps/details?id=video.downloader.video_downloader',
     liveLabel: 'Play Store',
+  },
+  {
+    title: 'Jaurvo',
+    year: '2026',
+    tag: 'My Company',
+    desc: 'My own web studio — websites, brands and designs for clients worldwide, built by a 15+ member team across Riyadh and Hyderabad. I founded Jaurvo and run it alongside my day job.',
+    tech: ['Angular', 'TypeScript', 'Supabase'],
+    liveUrl: 'https://jaurvo.vercel.app/',
+    liveLabel: 'Live Demo',
+    extraLinks: [{ url: 'https://github.com/jaurvo/jaurvo', label: 'GitHub' }],
   },
 ];
 
