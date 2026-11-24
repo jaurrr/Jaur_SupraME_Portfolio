@@ -70,7 +70,7 @@ export const ABOUT = {
   heading: 'About Me',
   image: 'assets/about-final.jpg',
   paragraphs: [
-    "I'm Jauhar Ayyub, a software engineer from India with 3+ years of experience building web applications. At Digital Transformation Factory, I work on a Manufacturing Execution System (MES) used in real production environments — building reusable Angular components with PrimeNG, integrating REST APIs, and handling complex data workflows with Reactive Forms and RxJS. The software I write runs on real factory floors, so it has to work right the first time.",
+    "I'm Jauhar Ayyub, a software engineer from India with 3+ years of experience building web applications. At Digital Transformation Factory, a Saudi-based company, I work on a Manufacturing Execution System (MES) used in real production environments — building reusable Angular components with PrimeNG, integrating REST APIs, and handling complex data workflows with Reactive Forms and RxJS. The software I write runs on real factory floors, so it has to work right the first time.",
     'Beyond my day job, I run Jaurvo — my own web studio with a 15+ member team building websites, brands and designs for clients worldwide, from Saudi restaurants to wedding invitations. I also lead JaurTools, a free tools platform in English, Hindi and Arabic, and I work with AI agents and reverse-engineering tools to prototype faster, learn how great apps work, and keep code quality high.',
   ],
   stats: [
@@ -156,7 +156,7 @@ export interface ExperienceEntry {
 export const EXPERIENCES: ExperienceEntry[] = [
   {
     role: 'Frontend Developer',
-    company: 'Digital Transformation Factory (DTF)',
+    company: 'Digital Transformation Factory (DTF) · Saudi Arabia',
     period: 'Jun 2024 – Present',
     liveUrl: 'https://dtf-ai.com/',
     summary:
