@@ -51,7 +51,7 @@ export const PROFILE = {
   brand: 'jauhar.dev',
   roles: ['Software Engineer', 'AI Engineer', 'Frontend Developer', 'Angular Specialist', 'AI-Assisted Developer'],
   tagline:
-    'Software engineer with 3+ years of experience building scalable web applications with Angular and TypeScript. I combine solid engineering fundamentals with AI-assisted workflows and reverse engineering to deliver quality software, faster.',
+    'Software engineer with 3+ years of experience building production web applications with Angular and TypeScript — from a Manufacturing Execution System used in real factories to client websites shipped worldwide. I combine solid engineering with AI-assisted workflows to deliver quality software, faster.',
   email: 'jaurazmi42@gmail.com',
   phone: '+91 9936786415',
   whatsapp: 'https://wa.me/919936786415',
@@ -63,20 +63,20 @@ export const PROFILE = {
   heroImage: 'assets/flip-front.jpg',
   heroBackImage: 'assets/flip-back.jpg',
   contactLine:
-    "Whether it's a job opportunity, an invite to coffee, or feedback on my portfolio, my inbox is always open. Available immediately — open to remote roles worldwide.",
+    "Have a role in mind, a project to build, or feedback on my work? My inbox is always open. I'm available immediately — open to remote roles worldwide, and to freelance projects through Jaurvo.",
 };
 
 export const ABOUT = {
   heading: 'About Me',
   image: 'assets/about-final.jpg',
   paragraphs: [
-    "I'm Jauhar Ayyub, a software engineer from India with over 3 years of experience building web applications. At Digital Transformation Factory, I work on a Manufacturing Execution System (MES) used in real production environments — integrating REST APIs, building reusable Angular components with PrimeNG, and handling complex data workflows with Reactive Forms and RxJS.",
-    'Beyond my day job, I run Jaurvo — my own web studio with a 15+ member team building websites, brands and designs for clients worldwide. I also design and ship complete products independently, from idea to deployment, and I work with AI agents and reverse-engineering tools to prototype faster, learn how great apps work, and keep code quality high.',
+    "I'm Jauhar Ayyub, a software engineer from India with 3+ years of experience building web applications. At Digital Transformation Factory, I work on a Manufacturing Execution System (MES) used in real production environments — building reusable Angular components with PrimeNG, integrating REST APIs, and handling complex data workflows with Reactive Forms and RxJS. The software I write runs on real factory floors, so it has to work right the first time.",
+    'Beyond my day job, I run Jaurvo — my own web studio with a 15+ member team building websites, brands and designs for clients worldwide, from Saudi restaurants to wedding invitations. I also lead JaurTools, a free tools platform in English, Hindi and Arabic, and I work with AI agents and reverse-engineering tools to prototype faster, learn how great apps work, and keep code quality high.',
   ],
   stats: [
     { value: '3+', label: 'Years Experience' },
     { value: '9', label: 'Major Projects' },
-    { value: '15+', label: 'Technologies' },
+    { value: '65', label: 'Skills & Tools' },
   ],
 };
 
@@ -134,31 +134,56 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 ];
 
 export const SERVICES: Service[] = [
-  { icon: '🖥️', title: 'Landing Pages', desc: 'Conversion-focused pages engineered for speed, clarity, and lead generation.' },
-  { icon: '🏢', title: 'Business Websites', desc: 'Corporate websites built to establish credibility and drive engagement.' },
-  { icon: '📱', title: 'Responsive Redesign', desc: 'Modernize outdated sites with layouts optimized for every screen size.' },
-  { icon: '✨', title: 'UI/UX Implementation', desc: 'Translate designs into production-ready interfaces with precision.' },
-  { icon: '🚀', title: 'Deployment & Hosting', desc: 'End-to-end deployment on Vercel or Netlify with CI/CD best practices.' },
-  { icon: '🔧', title: 'Site Maintenance', desc: 'Proactive updates, performance tuning, and ongoing support.' },
+  { icon: '🖥️', title: 'Landing Pages', desc: 'Fast, focused pages that turn visitors into enquiries — built in Angular and shipped on Vercel.' },
+  { icon: '🏢', title: 'Business Websites', desc: 'Complete websites for real businesses — restaurants, parlours, builders and studios, with booking and WhatsApp ordering built in.' },
+  { icon: '📱', title: 'Responsive Redesign', desc: 'Old sites rebuilt mobile-first, so they look right on every phone and load fast on slow networks.' },
+  { icon: '✨', title: 'UI/UX Implementation', desc: 'Figma designs turned into pixel-clean, production-ready Angular interfaces — including Arabic RTL layouts.' },
+  { icon: '🚀', title: 'Deployment & Hosting', desc: 'End-to-end deployment on Vercel with GitHub CI/CD — every push live in minutes, with preview links for review.' },
+  { icon: '🔧', title: 'Site Maintenance', desc: 'Updates, fixes and performance tuning that keep a live site fast and working — without breaking what already works.' },
 ];
 
 export const SERVICES_IMAGE = 'assets/services-offer.jpg';
 
-export const EXPERIENCE = {
-  role: 'Frontend Developer',
-  company: 'Digital Transformation Factory (DTF)',
-  period: 'Jun 2024 – Present',
-  liveUrl: 'https://dtf-ai.com/',
-  summary:
-    'Manufacturing Execution System (MES) — a web application for managing quality processes in field operations: checklist creation, sample execution, dynamic forms, and reporting.',
-  points: [
-    'Build and maintain production MES workflows in Angular and TypeScript — checklist creation, sample execution, dynamic forms and reporting — used in real field operations.',
-    'Design complex, validated forms with Reactive Forms and RxJS, turning changing business rules into reusable, maintainable form components.',
-    'Integrate REST APIs with token-based authentication and build data-heavy screens with PrimeNG components.',
-    'Create reusable components so new checklists, forms and reports ship faster without duplicating code.',
-    'Fix production bugs and improve existing screens while the system stays live for its users.',
-  ],
-};
+export interface ExperienceEntry {
+  role: string;
+  company: string;
+  period: string;
+  liveUrl: string;
+  summary: string;
+  points: string[];
+}
+
+export const EXPERIENCES: ExperienceEntry[] = [
+  {
+    role: 'Frontend Developer',
+    company: 'Digital Transformation Factory (DTF)',
+    period: 'Jun 2024 – Present',
+    liveUrl: 'https://dtf-ai.com/',
+    summary:
+      'Manufacturing Execution System (MES) — a web application for managing quality processes in field operations: checklist creation, sample execution, dynamic forms, and reporting.',
+    points: [
+      'Build and maintain production MES workflows in Angular and TypeScript — checklist creation, sample execution, dynamic forms and reporting — used in real field operations.',
+      'Design complex, validated forms with Reactive Forms and RxJS, turning changing business rules into reusable, maintainable form components.',
+      'Integrate REST APIs with token-based authentication and build data-heavy screens with PrimeNG components.',
+      'Create reusable components so new checklists, forms and reports ship faster without duplicating code.',
+      'Fix production bugs and improve existing screens while the system stays live for its users.',
+    ],
+  },
+  {
+    role: 'Founder & Lead Developer',
+    company: 'Jaurvo — Web Studio',
+    period: '2026 – Present',
+    liveUrl: 'https://jaurvo.vercel.app/',
+    summary:
+      'My own web studio — a 15+ member team across Riyadh and Hyderabad building websites, brands and designs for clients worldwide.',
+    points: [
+      'Lead a 15+ member team delivering client websites — from Saudi restaurants and beauty parlours to wedding invitations and business sites.',
+      'Own every project end to end: client calls, design direction, Angular development and deployment.',
+      'Built the studio site and admin system on Angular + Supabase, with enquiries, portfolio and content managed in one place.',
+      'Run outreach and client relationships alongside my day job, turning cold leads into live projects.',
+    ],
+  },
+];
 
 export const CERTIFICATIONS: Certificate[] = [
   {
@@ -183,6 +208,7 @@ export const CERTIFICATIONS: Certificate[] = [
 
 export const EDUCATION: Education[] = [
   { title: 'BCA · 2024', org: 'Veer Bahadur Singh Purvanchal University, Jaunpur', url: 'https://www.vbspu.ac.in' },
+  { title: 'Selenium Testing · 2024', org: 'Naresh Technologies (Naresh IT), Ameerpet, Hyderabad', url: 'https://nareshit.in/' },
   { title: 'Intermediate · 2019', org: 'Shibli National Inter College, Azamgarh' },
   { title: 'High School · 2017', org: 'R.N Public School, Azamgarh' },
 ];
@@ -225,7 +251,7 @@ export const PROJECTS: Project[] = [
     title: 'SnapLink',
     year: '2024',
     tag: 'College Team Project',
-    desc: 'Multi-platform video downloader built with a 3-member college team. I handled the responsive frontend and API integration for the download functionality.',
+    desc: 'Multi-platform video downloader built with a 3-member college team — I handled the responsive frontend and the API integration behind the download flow.',
     tech: ['Angular'],
     image: 'assets/project-snaplink.jpg',
     liveUrl: 'https://play.google.com/store/apps/details?id=video.downloader.video_downloader',
@@ -246,7 +272,7 @@ export const PROJECTS: Project[] = [
     title: 'Toos Kitchen & Zaffran',
     year: '2026',
     tag: 'Live Client Project',
-    desc: 'A bilingual (English / Arabic) website for two sister restaurants in Saihat, Saudi Arabia, a complete 362-dish menu with categories and search, a cart that sends the order straight to the restaurant, a photo gallery and table booking.',
+    desc: 'A bilingual (English / Arabic) website for two sister restaurants in Saihat, Saudi Arabia — with a complete 362-dish menu with categories and search, a cart that sends the order straight to the restaurant on WhatsApp, a photo gallery and table booking.',
     tech: ['Angular', 'TypeScript', 'i18n & RTL'],
     liveUrl: 'https://toos-kitchen-zaffran.vercel.app',
     liveLabel: 'Live Demo',
@@ -256,7 +282,7 @@ export const PROJECTS: Project[] = [
     title: "Tipsy Topsy Baker's & Restaurant",
     year: '2026',
     tag: 'Sample Design',
-    desc: 'A studio sample website for a pure-veg family restaurant and eggless bakery in Azamgarh, menu-first layout, Google ratings up front and one-tap direct ordering. Built to show exactly what a restaurant site from Jaurvo looks like.',
+    desc: 'A studio sample website for a pure-veg family restaurant and eggless bakery in Azamgarh — menu-first layout, Google ratings up front and one-tap direct ordering. Built to show exactly what a restaurant site from Jaurvo looks like.',
     tech: ['Angular', 'TypeScript'],
     liveUrl: 'https://tipsy-topsy-baker-s-restaurant.vercel.app',
     liveLabel: 'Live Demo',
@@ -266,7 +292,7 @@ export const PROJECTS: Project[] = [
     title: 'Azka & Sajid, Nikah Invitation',
     year: '2026',
     tag: 'Live Client Project',
-    desc: "A wedding invitation website designed in the printed card's own deep maroon and gold style, a curtain-opening welcome, a live countdown to the Nikah on Monday, 16 November 2026 at Sangam Marriage Hall, Bilariyaganj, the venue on Google Maps and one-tap RSVP for guests.",
+    desc: "A wedding invitation website in the printed card's own deep maroon and gold style — curtain-opening welcome, live countdown to the Nikah, venue on Google Maps and one-tap RSVP. Built for the Nikah held on 16 November 2026 at Sangam Marriage Hall, Bilariyaganj.",
     tech: ['Angular', 'TypeScript'],
     liveUrl: 'https://azka-sajid-invitation.vercel.app',
     liveLabel: 'Live Demo',
@@ -276,7 +302,7 @@ export const PROJECTS: Project[] = [
     title: 'Bride Herbal Beauty Parlour',
     year: '2026',
     tag: 'Live Client Project',
-    desc: 'A website for a beauty parlour with 20 years of trusted care, facials, bridal makeup and henna services with a tap-to-add booking cart, curated bridal and glow combo packages, a photo gallery, beauty tips journal and appointment booking.',
+    desc: 'A website for a beauty parlour with 20 years of trusted care — facials, bridal makeup and henna services with a tap-to-add booking cart, curated bridal and glow combo packages, a photo gallery, a beauty-tips journal and appointment booking.',
     tech: ['Angular', 'TypeScript'],
     liveUrl: 'https://bride-herbal-beauty-parlorrr.vercel.app/',
     liveLabel: 'Live Demo',

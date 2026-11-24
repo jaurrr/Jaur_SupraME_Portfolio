@@ -7,6 +7,7 @@
     <span class="label">Where I work</span>
   </div>
 
+  @for (exp of experiences; track exp.company) {
   <article class="timeline-item" appReveal>
     <div class="tl-period">{{ exp.period }}</div>
     <div class="tl-body">
@@ -22,6 +23,7 @@
       </ul>
     </div>
   </article>
+  }
 
   <div class="two-col">
     <div>

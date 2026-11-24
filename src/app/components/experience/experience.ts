@@ -1,6 +1,6 @@
 import { Component, HostListener, inject, signal } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { CERTIFICATIONS, EDUCATION, EXPERIENCE, type Certificate } from '../../data/portfolio';
+import { CERTIFICATIONS, EDUCATION, EXPERIENCES, type Certificate } from '../../data/portfolio';
 import { ImgWipeDirective } from '../../directives/imgwipe';
 import { PanelDirective } from '../../directives/panel';
 import { RevealDirective } from '../../directives/reveal';
@@ -14,7 +14,7 @@ import { RevealDirective } from '../../directives/reveal';
 export class ExperienceComponent {
   private readonly sanitizer = inject(DomSanitizer);
 
-  protected readonly exp = EXPERIENCE;
+  protected readonly experiences = EXPERIENCES;
   protected readonly certs = CERTIFICATIONS;
   protected readonly education = EDUCATION;
   protected readonly selectedCert = signal<Certificate | null>(null);
