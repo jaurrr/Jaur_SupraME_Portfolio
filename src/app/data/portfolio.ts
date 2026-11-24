@@ -48,14 +48,14 @@ export interface Education {
 export const PROFILE = {
   firstName: 'Jauhar',
   lastName: 'Ayyub',
-  brand: 'jauhar.dev',
-  roles: ['Software Engineer', 'AI Engineer', 'Frontend Developer', 'Angular Specialist', 'AI-Assisted Developer'],
+  brand: 'call me Jaur',
+  roles: ['Software Engineer', 'AI Engineer', 'Angular Specialist', 'AI-Assisted Developer'],
   tagline:
     'Software engineer with 3+ years of experience building production web applications with Angular and TypeScript — from a Manufacturing Execution System used in real factories to client websites shipped worldwide. I combine solid engineering with AI-assisted workflows to deliver quality software, faster.',
   email: 'jaurazmi42@gmail.com',
   phone: '+91 9936786415',
   whatsapp: 'https://wa.me/919936786415',
-  location: 'India',
+  location: 'Hyderabad, India',
   github: 'https://github.com/jaurrr',
   linkedin: 'https://www.linkedin.com/in/jauhar-ayyub-xxxyt42',
   instagram: 'https://www.instagram.com/jaur__',
@@ -166,7 +166,7 @@ export const EXPERIENCES: ExperienceEntry[] = [
       'Design complex, validated forms with Reactive Forms and RxJS, turning changing business rules into reusable, maintainable form components.',
       'Integrate REST APIs with token-based authentication and build data-heavy screens with PrimeNG components.',
       'Create reusable components so new checklists, forms and reports ship faster without duplicating code.',
-      'Fix production bugs and improve existing screens while the system stays live for its users.',
+      'Fix production bugs, optimize SQL queries and improve existing screens while the system stays live for its users, coordinating with the backend team.',
     ],
   },
   {
@@ -194,7 +194,7 @@ export const CERTIFICATIONS: Certificate[] = [
   },
   {
     title: 'Selenium Testing',
-    org: 'Naresh Technologies, Hyderabad · Jun–Aug 2024',
+    org: 'Naresh Technologies, Hyderabad (ISO 9001:2015 Certified) · Jun–Aug 2024',
     thumb: 'assets/certificates/thumb-selenium.png',
     pdf: 'assets/certificates/selenium-naresh.pdf',
   },
@@ -210,7 +210,7 @@ export const EDUCATION: Education[] = [
   { title: 'BCA · 2024', org: 'Veer Bahadur Singh Purvanchal University, Jaunpur', url: 'https://www.vbspu.ac.in' },
   { title: 'Selenium Testing · 2024', org: 'Naresh Technologies (Naresh IT), Ameerpet, Hyderabad', url: 'https://nareshit.in/' },
   { title: 'Intermediate · 2019', org: 'Shibli National Inter College, Azamgarh' },
-  { title: 'High School · 2017', org: 'R.N Public School, Azamgarh' },
+  { title: 'High School · 2017', org: 'R.N Public School, Jaigahan, Azamgarh' },
 ];
 
 export const PROJECTS: Project[] = [
@@ -228,8 +228,8 @@ export const PROJECTS: Project[] = [
   {
     title: 'Hamza Travels',
     year: '2025',
-    tag: 'Solo Project',
-    desc: 'Travel documents, ticketing & packages platform — designed and built end to end: frontend architecture, UI/UX, and booking workflows. Live production site, solo delivered from idea to deployment.',
+    tag: 'Live Client Project',
+    desc: 'Travel documents, ticketing & packages platform for a travel business — designed and built solo end to end: frontend architecture, UI/UX, and booking workflows that let customers get documents and tickets online through partner shops. Live production site.',
     tech: ['Angular', 'TypeScript', 'Lucide'],
     liveUrl: 'https://hamza-travels-ruddy.vercel.app/',
     liveLabel: 'Live Demo',
@@ -292,7 +292,7 @@ export const PROJECTS: Project[] = [
     title: 'Azka & Sajid, Nikah Invitation',
     year: '2026',
     tag: 'Live Client Project',
-    desc: "A wedding invitation website in the printed card's own deep maroon and gold style — curtain-opening welcome, live countdown to the Nikah, venue on Google Maps and one-tap RSVP. Built for the Nikah held on 16 November 2026 at Sangam Marriage Hall, Bilariyaganj.",
+    desc: "A wedding invitation website in the printed card's own deep maroon and gold style — curtain-opening welcome, countdown to the big day, venue on Google Maps and one-tap RSVP. Built for the Nikah held on 16 November 2026 at Sangam Marriage Hall, Bilariyaganj.",
     tech: ['Angular', 'TypeScript'],
     liveUrl: 'https://azka-sajid-invitation.vercel.app',
     liveLabel: 'Live Demo',

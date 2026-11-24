@@ -52,3 +52,14 @@
   .skill-cats { grid-template-columns: 1fr; gap: 2.5rem; }
   .services { grid-template-columns: 1fr; gap: 2.5rem; }
 }
+
+.services-more { margin-top: 1.5rem; }
+.services-more a {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.1rem;
+}
+.services-more a:hover { color: var(--ink); border-color: var(--ink); }

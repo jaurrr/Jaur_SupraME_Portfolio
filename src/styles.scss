@@ -148,9 +148,9 @@ body.loaded .mask > span { animation: riseUp 0.95s var(--ease) forwards; }
   pointer-events: none;
 }
 html.armed .imgwipe img { opacity: 0; }
-.imgwipe.swept img { opacity: 1; transition: opacity 0.01s 0.55s; }
+.imgwipe.swept img { opacity: 1; transition: opacity 0.01s 0.5s; }
 html.armed .imgwipe.swept img { opacity: 1 !important; }
-.imgwipe.swept::after { animation: blockWipe 1.1s var(--ease) forwards; }
+.imgwipe.swept::after { animation: blockWipe 1s var(--ease) forwards; }
 @keyframes blockWipe {
   0% { transform: scaleX(0); transform-origin: left; }
   45%, 55% { transform: scaleX(1); transform-origin: left; }

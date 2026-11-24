@@ -9,6 +9,7 @@
         <span>—&nbsp;<app-typing [words]="profile.roles" /></span>
       </p>
       <p class="hero-tagline mask"><span>{{ profile.tagline }}</span></p>
+      <p class="avail-badge mask"><span><span class="avail-dot" aria-hidden="true"></span>Available for work</span></p>
       <div class="hero-actions">
         <a class="btn" href="#projects" (click)="go('projects'); $event.preventDefault()">View Work</a>
         <a class="btn btn-ghost" [href]="profile.cvPath" download>Download CV</a>

@@ -37,6 +37,29 @@
   margin-bottom: 2.5rem;
 }
 
+.avail-badge {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  margin: 0 0 2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+:host-context(body.loaded) .avail-badge.mask > span { animation-delay: 0.65s; }
+.avail-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #2e9e5b;
+  margin-right: 0.55rem;
+  vertical-align: 0.05rem;
+}
+
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; }
 :host-context(body.loaded) .hero-actions { animation: heroFadeUp 0.8s var(--ease) 0.7s forwards; }
 @keyframes heroFadeUp {
