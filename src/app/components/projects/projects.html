@@ -14,14 +14,19 @@
     <figcaption><span class="cap-num">Pl. IV</span> Things I have built.</figcaption>
   </figure>
 
-  <div class="projects">
+  <div class="projects-grid">
     @for (p of projects; track p.title; let i = $index) {
-      <article class="project" appReveal [appReveal]="i * 60">
-        <div class="proj-meta">
-          <span class="proj-tag">{{ p.tag }}</span>
-          <span class="proj-year">{{ p.year }}</span>
-        </div>
-        <div class="proj-body">
+      <article class="project-card" appReveal [appReveal]="i * 60">
+        @if (p.image) {
+          <a class="proj-shot" [href]="p.liveUrl" target="_blank" rel="noopener" [attr.aria-label]="'Open ' + p.title + ' live site'">
+            <img [src]="p.image" [alt]="p.title + ' — homepage screenshot'" loading="lazy" />
+          </a>
+        }
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-tag">{{ p.tag }}</span>
+            <span class="proj-year">{{ p.year }}</span>
+          </div>
           <h3>{{ p.title }}</h3>
           <p>{{ p.desc }}</p>
           <p class="proj-tech">{{ p.tech.join(' · ') }}</p>

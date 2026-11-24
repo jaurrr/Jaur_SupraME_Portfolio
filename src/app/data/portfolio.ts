@@ -20,6 +20,8 @@ export interface Project {
   tech: string[];
   liveUrl?: string;
   liveLabel?: string;
+  /** Homepage screenshot shown on the project card, e.g. 'assets/project-toos.jpg' */
+  image?: string;
   /** Additional links, e.g. company site alongside the app login */
   extraLinks?: { url: string; label: string }[];
   tag: string;
@@ -73,7 +75,7 @@ export const ABOUT = {
   ],
   stats: [
     { value: '3+', label: 'Years Experience' },
-    { value: '5', label: 'Major Projects' },
+    { value: '9', label: 'Major Projects' },
     { value: '15+', label: 'Technologies' },
   ],
 };
@@ -204,6 +206,7 @@ export const PROJECTS: Project[] = [
     tech: ['Angular', 'TypeScript', 'Lucide'],
     liveUrl: 'https://hamza-travels-ruddy.vercel.app/',
     liveLabel: 'Live Demo',
+    image: 'assets/project-hamza.jpg',
     extraLinks: [{ url: 'https://github.com/jaurrr/hamza-travels', label: 'GitHub' }],
   },
   {
@@ -214,6 +217,7 @@ export const PROJECTS: Project[] = [
     tech: ['Angular', 'TypeScript'],
     liveUrl: 'https://jaurtools.vercel.app/',
     liveLabel: 'Live Demo',
+    image: 'assets/project-jaurtools.jpg',
     extraLinks: [{ url: 'https://github.com/jaurrr/Jaurtools', label: 'GitHub' }],
   },
   {
@@ -234,6 +238,46 @@ export const PROJECTS: Project[] = [
     liveUrl: 'https://jaurvo.vercel.app/',
     liveLabel: 'Live Demo',
     extraLinks: [{ url: 'https://github.com/jaurvo/jaurvo', label: 'GitHub' }],
+  },
+  {
+    title: 'Toos Kitchen & Zaffran',
+    year: '2026',
+    tag: 'Live Client Project',
+    desc: 'A bilingual (English / Arabic) website for two sister restaurants in Saihat, Saudi Arabia, a complete 362-dish menu with categories and search, a cart that sends the order straight to the restaurant, a photo gallery and table booking.',
+    tech: ['Angular', 'TypeScript', 'i18n & RTL'],
+    liveUrl: 'https://toos-kitchen-zaffran.vercel.app',
+    liveLabel: 'Live Demo',
+    image: 'assets/project-toos.jpg',
+  },
+  {
+    title: "Tipsy Topsy Baker's & Restaurant",
+    year: '2026',
+    tag: 'Sample Design',
+    desc: 'A studio sample website for a pure-veg family restaurant and eggless bakery in Azamgarh, menu-first layout, Google ratings up front and one-tap direct ordering. Built to show exactly what a restaurant site from Jaurvo looks like.',
+    tech: ['Angular', 'TypeScript'],
+    liveUrl: 'https://tipsy-topsy-baker-s-restaurant.vercel.app',
+    liveLabel: 'Live Demo',
+    image: 'assets/project-tipsy.jpg',
+  },
+  {
+    title: 'Azka & Sajid, Nikah Invitation',
+    year: '2026',
+    tag: 'Live Client Project',
+    desc: "A wedding invitation website designed in the printed card's own deep maroon and gold style, a curtain-opening welcome, a live countdown to the Nikah on Monday, 16 November 2026 at Sangam Marriage Hall, Bilariyaganj, the venue on Google Maps and one-tap RSVP for guests.",
+    tech: ['Angular', 'TypeScript'],
+    liveUrl: 'https://azka-sajid-invitation.vercel.app',
+    liveLabel: 'Live Demo',
+    image: 'assets/project-azka.jpg',
+  },
+  {
+    title: 'Bride Herbal Beauty Parlour',
+    year: '2026',
+    tag: 'Live Client Project',
+    desc: 'A website for a beauty parlour with 20 years of trusted care, facials, bridal makeup and henna services with a tap-to-add booking cart, curated bridal and glow combo packages, a photo gallery, beauty tips journal and appointment booking.',
+    tech: ['Angular', 'TypeScript'],
+    liveUrl: 'https://bride-herbal-beauty-parlorrr.vercel.app/',
+    liveLabel: 'Live Demo',
+    image: 'assets/project-parlor.jpg',
   },
 ];
 
